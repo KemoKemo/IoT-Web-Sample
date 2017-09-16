@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Temperature Monitor</title>
+</head>
+
+<body>
+
+    <div id="tempmon">
+        <md-toolbar>
+            <h1 class="md-title">Temperature Monitor</h1>
+        </md-toolbar>
+
+        <md-button class="md-raised md-primary" v-on:click="getData">Update</md-button>
+
+        <md-layout md-gutter>
+            <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33" class="main-content">
+                <md-card>
+                    <md-card-header>
+                        <div class="md-title">Sensor</div>
+                    </md-card-header>
+
+                    <md-card-content>
+                      {{ message }}
+                    </md-card-content>
+                </md-card>
+            </md-layout>
+        </md-layout>
+
+    </div>
+
+</body>
+<script src="assets/js/vue.js"></script>
+<link rel="stylesheet" href="assets/css/vue-material.css">
+<script src="assets/js/vue-material.js"></script>
+<script src="assets/js/axios.js"></script>
+<script src="assets/js/app.js"></script>
+
+</script>
+
+</html>
