@@ -23,7 +23,8 @@
                     </md-card-header>
 
                     <md-card-content>
-                      {{ message }}
+                        <sensor-gauge></sensor-gauge>
+                        <br> {{ message }}
                     </md-card-content>
                 </md-card>
             </md-layout>
@@ -32,12 +33,12 @@
     </div>
 
 </body>
+
 <script src="assets/js/vue.js"></script>
 <link rel="stylesheet" href="assets/css/vue-material.css">
 <script src="assets/js/vue-material.js"></script>
 <script src="assets/js/axios.js"></script>
+<script src="assets/js/gauge.min.js"></script>
 <script src="assets/js/app.js"></script>
-
-</script>
 
 </html>
