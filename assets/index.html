@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Temperature Monitor</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
@@ -19,12 +21,13 @@
             <md-layout md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33" class="main-content">
                 <md-card>
                     <md-card-header>
-                        <div class="md-title">Sensor</div>
+                        <div class="md-title">{{ name }}</div>
                     </md-card-header>
 
                     <md-card-content>
-                        <sensor-gauge></sensor-gauge>
-                        <br> {{ message }}
+                        <canvas id="gauge-id"></canvas>
+                        <br>
+                        <p>{{ message }}</p>
                     </md-card-content>
                 </md-card>
             </md-layout>
@@ -34,11 +37,11 @@
 
 </body>
 
-<script src="assets/js/vue.js"></script>
-<link rel="stylesheet" href="assets/css/vue-material.css">
-<script src="assets/js/vue-material.js"></script>
-<script src="assets/js/axios.js"></script>
-<script src="assets/js/gauge.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="js/vue.js"></script>
+<link rel="stylesheet" href="css/vue-material.css">
+<script src="js/vue-material.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/gauge.min.js"></script>
+<script src="js/app.js"></script>
 
 </html>

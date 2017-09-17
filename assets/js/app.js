@@ -1,32 +1,43 @@
 Vue.use(VueMaterial);
 
-Vue.component('sensor-gauge', {
-    template: '<canvas id="gauge-id" data-type="linear-gauge" data-color-numbers="red" data-width="200" data-height="400"></canvas>'
-})
-
 let tempmon = new Vue({
     el: '#tempmon',
     data: {
-        message: 'JSON data will be here! ',
+        name: 'Sensor',
         gauge: null,
-        sensors: []
+        message: '',
     },
     methods: {
         init: function() {
             this.gauge = new LinearGauge({
                 renderTo: 'gauge-id',
                 colorNumbers: 'red',
-                width: 100,
-                height: 300,
+                minValue: -10,
+                maxValue: 50,
+                majorTicks: [
+                  -10,
+                    0,
+                    10,
+                    20,
+                    30,
+                    40,
+                    50
+                ],
+                highlights: [{
+                    "from": 30,
+                    "to": 50,
+                    "color": "rgba(200, 50, 50, .75)"
+                }],
+                width: 200,
+                height: 400,
             });
         },
         getData: function() {
             axios.get('http://localhost:5000/api/v1/sensors')
                 .then((response) => {
-                    this.sensors = response.data['sensor-list'];
-                    this.message = this.sensors[0].temp_c;
-                    this.gauge.draw();
-                    this.gauge.value = "20.9";
+                    let sensors = response.data['sensor-list'];
+                    this.name = 'Sensor: ' + sensors[0].name;
+                    this.gauge.value = sensors[0].temp_c;
                 })
                 .catch((error) => {
                     this.message = error;
