@@ -1,5 +1,8 @@
 Vue.use(VueMaterial);
 
+// TODO: サービス実行時に外部の設定ファイルから値を受け取りたい
+const baseURI = 'http://localhost:5000/api/v1';
+
 let tempmon = new Vue({
     el: '#tempmon',
     data: {
@@ -14,15 +17,7 @@ let tempmon = new Vue({
                 colorNumbers: 'red',
                 minValue: -10,
                 maxValue: 50,
-                majorTicks: [
-                  -10,
-                    0,
-                    10,
-                    20,
-                    30,
-                    40,
-                    50
-                ],
+                majorTicks: [-10, 0, 10, 20, 30, 40, 50],
                 highlights: [{
                     "from": 30,
                     "to": 50,
@@ -33,11 +28,12 @@ let tempmon = new Vue({
             });
         },
         getData: function() {
-            axios.get('http://localhost:5000/api/v1/sensors')
+            axios.get(baseURI + '/sensors')
                 .then((response) => {
                     let sensors = response.data['sensor-list'];
                     this.name = 'Sensor: ' + sensors[0].name;
                     this.gauge.value = sensors[0].temp_c;
+                    this.message = '';
                 })
                 .catch((error) => {
                     this.message = error;
