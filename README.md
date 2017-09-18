@@ -10,4 +10,5 @@ Go言語製の簡単なWebサービスでhtml、css、jsを公開して、描画
 
 * [Vue.js](https://github.com/vuejs/vue)
 * [vue-material](https://github.com/vuematerial/vue-material)
+* [axios](https://github.com/mzabriskie/axios)
 * [canvas-gauge](https://github.com/Mikhus/canvas-gauges)
