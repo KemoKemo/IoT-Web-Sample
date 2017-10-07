@@ -30,7 +30,7 @@ let tempmon = new Vue({
         getData: function() {
             axios.get(baseURI + '/sensors')
                 .then((response) => {
-                    let sensors = response.data['sensor-list'];
+                    let sensors = response.data.sensor_list;
                     this.name = 'Sensor: ' + sensors[0].name;
                     this.gauge.value = sensors[0].temp_c;
                     this.message = '';
